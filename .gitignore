@@ -43,3 +43,11 @@ logs/
 # OS files
 *.DS_Store
 Thumbs.db
+
+
+# Project data
+data/
+
+# Generated outputs
+route_map.html
+road_geometry_map.html

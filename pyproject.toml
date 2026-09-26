@@ -1,18 +1,24 @@
 [project]
-name = "your-project-name"
+name = "ev-traffic-charging-prediction"
 version = "0.1.0"
-description = "Your project description"
+description = "Traffic-based vehicle routing prediction for electric vehicle charging applications"
 readme = "README.md"
-authors = [{ name = "Your Name", email = "your.email@example.com" }]
+authors = [{ name = "Ekaterina Grigorashchenko", email = "grigorashchenko.ea@gmail.com" }]
 requires-python = ">=3.13"
-dependencies = []
+dependencies = [
+    "folium>=0.20.0",
+    "jupyter>=1.1.1",
+    "matplotlib>=3.11.2",
+    "networkx>=3.7",
+    "pandas>=3.0.6",
+]
 
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
 [tool.hatch.build.targets.wheel]
-packages = ["src/your_package_name"]
+packages = ["src/ev_traffic"]
 
 [dependency-groups]
 dev = [
