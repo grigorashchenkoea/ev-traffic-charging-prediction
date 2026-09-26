@@ -1,0 +1,45 @@
+# Devenv
+.devenv*
+devenv.local.nix
+devenv.local.yaml
+
+# direnv
+.direnv
+
+# Local agent settings and session state
+.claude/settings.local.json
+.sisyphus/
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Python artifacts
+**/__pycache__/
+*.egg-info/
+.uv/
+.venv/
+*.pyc
+*.pyo
+*.pyd
+
+# Testing and Coverage
+.pytest_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+
+# Databases and SQLite
+*.db
+*.sqlite
+*.sqlite3
+
+# Logs
+logs/
+*.log
+
+# OS files
+*.DS_Store
+Thumbs.db

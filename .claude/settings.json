@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "extraKnownMarketplaces": {
+    "energyit": {
+      "source": {
+        "source": "git",
+        "url": "git@gitlab.tuwien.ac.at:energyit_projects/internal/tools/energyit-claude-marketplace.git",
+        "sparsePaths": [".claude-plugin", "plugins"]
+      }
+    }
+  },
+  "permissions": {
+    "allow": [
+      "Bash(uv sync)",
+      "Bash(uv sync *)",
+      "Bash(uv lock)",
+      "Bash(uv run ruff check *)",
+      "Bash(uv run ruff format)",
+      "Bash(uv run ruff format *)",
+      "Bash(uv run ty check)",
+      "Bash(uv run ty check *)",
+      "Bash(uv run pytest)",
+      "Bash(uv run pytest *)",
+      "Bash(uv run pymarkdown scan *)",
+      "Bash(uv run pre-commit run *)",
+      "Bash(git status *)",
+      "Bash(git diff *)",
+      "Bash(git log *)",
+      "Bash(git ls-files *)"
+    ]
+  }
+}

@@ -1,0 +1,77 @@
+[project]
+name = "your-project-name"
+version = "0.1.0"
+description = "Your project description"
+readme = "README.md"
+authors = [{ name = "Your Name", email = "your.email@example.com" }]
+requires-python = ">=3.13"
+dependencies = []
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/your_package_name"]
+
+[dependency-groups]
+dev = [
+    "pre-commit>=4.3.0",
+    "ty>=0.0.25",
+    "ruff>=0.14.14",
+    "pymarkdownlnt>=0.9.39",
+]
+
+[tool.ruff]
+line-length = 88
+target-version = "py313"
+
+[tool.ruff.lint]
+select = [
+    "E",   # pycodestyle errors
+    "F",   # pyflakes
+    "B",   # flake8-bugbear
+    "I",   # isort
+    "S",   # flake8-bandit (security)
+    "T20", # flake8-print
+    "D",   # pydocstyle (Google style)
+    "RUF", # Ruff-specific rules
+    "UP",  # pyupgrade
+    "C90", # mccabe complexity
+    "Q",   # flake8-quotes
+]
+ignore = [
+    # D203: 1 blank line required before class docstring (conflicts with D211)
+    "D203",
+    # D213: Multi-line docstring summary should start at the second line
+    "D213",
+    # E501: Line too long (handled by formatter)
+    "E501",
+]
+
+[tool.ruff.lint.pydocstyle]
+convention = "google"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 15
+
+[tool.pymarkdown]
+# Off by default; without it frontmatter is linted as prose.
+extensions.front-matter.enabled = true
+# Also off by default, and MD013 cannot exempt tables it does not parse.
+extensions.markdown-tables.enabled = true
+# Prose wraps at 80; 120 leaves room for long links. Table rows and code
+# blocks cannot be wrapped without breaking them, so exempt them rather
+# than picking a bigger arbitrary number.
+plugins.md013.line_length = 120
+plugins.md013.tables = false
+plugins.md013.code_blocks = false
+
+[tool.ty.environment]
+python-version = "3.13"
+
+[tool.ty.src]
+include = ["src/**/*.py"]
+
+[tool.ty.terminal]
+error-on-warning = true

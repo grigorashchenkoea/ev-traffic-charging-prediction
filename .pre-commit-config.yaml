@@ -1,0 +1,52 @@
+default_language_version:
+  python: python3
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v5.0.0
+    hooks:
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-toml
+      - id: check-added-large-files
+      # Catches a clone or tool that replaced CLAUDE.md with a text file
+      # containing the path it used to point at.
+      - id: destroyed-symlinks
+
+  # The group's symlink maintainer, from the EnergyIT Claude marketplace.
+  # Update the pin with `pre-commit autoupdate`.
+  - repo: git@gitlab.tuwien.ac.at:energyit_projects/internal/tools/energyit-claude-marketplace.git
+    rev: v0.5.0
+    hooks:
+      - id: sync-agent-context
+
+  - repo: local
+    hooks:
+      - id: pymarkdown
+        name: markdown lint
+        language: system
+        entry: uv run pymarkdown scan
+        types: [markdown]
+
+      # Lint first: --fix restructures code (import order, rewrites), and
+      # format cleans up after it. The reverse order needs a second pass.
+      - id: ruff
+        name: ruff (lint+fix)
+        language: system
+        entry: uv run ruff check --fix
+        types: [python]
+        pass_filenames: true
+
+      - id: ruff-format
+        name: ruff format
+        language: system
+        entry: uv run ruff format
+        types: [python]
+        pass_filenames: true
+
+      - id: ty
+        name: ty type check
+        language: system
+        entry: uv run ty check
+        pass_filenames: false
+        files: \.py$
