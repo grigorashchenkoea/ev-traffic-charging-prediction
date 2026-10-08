@@ -6,11 +6,13 @@ readme = "README.md"
 authors = [{ name = "Ekaterina Grigorashchenko", email = "grigorashchenko.ea@gmail.com" }]
 requires-python = ">=3.13"
 dependencies = [
+    "catboost>=1.2.10",
     "folium>=0.20.0",
     "jupyter>=1.1.1",
     "matplotlib>=3.11.2",
     "networkx>=3.7",
     "pandas>=3.0.6",
+    "scikit-learn>=1.9.1",
 ]
 
 [build-system]
