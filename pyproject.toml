@@ -12,6 +12,7 @@ dependencies = [
     "matplotlib>=3.11.2",
     "networkx>=3.7",
     "pandas>=3.0.6",
+    "pyarrow>=26.0.1",
     "scikit-learn>=1.9.1",
 ]
 

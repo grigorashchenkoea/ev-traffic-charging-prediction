@@ -51,3 +51,6 @@ data/
 # Generated outputs
 route_map.html
 road_geometry_map.html
+# Trained models and experiment logs
+models/
+notebooks/catboost_info/
